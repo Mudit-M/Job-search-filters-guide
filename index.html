@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Search Automation Guide (2026)</title>
+    <style>
+        :root { --primary: #0070d2; --bg: #f4f6f9; --text: #16325c; --accent: #ffb75d; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: var(--text); background-color: var(--bg); margin: 0; padding: 20px; }
+        .container { max-width: 900px; margin: 0 auto; background: white; padding: 40px; border-radius: 8px; box-shadow: 0 2px 15px rgba(0,0,0,0.1); }
+        h1 { color: var(--primary); border-bottom: 3px solid var(--primary); padding-bottom: 10px; }
+        h2 { color: var(--primary); margin-top: 30px; border-left: 5px solid var(--primary); padding-left: 15px; }
+        h3 { color: #54698d; text-transform: uppercase; font-size: 0.9em; margin-top: 25px; }
+        code { background: #f0f2f7; color: #c23934; padding: 15px; display: block; border-radius: 4px; border: 1px solid #d8dde6; overflow-x: auto; white-space: pre-wrap; font-family: 'Courier New', monospace; margin: 10px 0; }
+        .btn { display: inline-block; background: var(--primary); color: white; padding: 15px 25px; text-decoration: none; border-radius: 4px; font-weight: bold; margin: 20px 0; transition: background 0.3s; }
+        .btn:hover { background: #005fb2; }
+        .note { background: #fff9e6; border-left: 5px solid var(--accent); padding: 20px; margin: 20px 0; border-radius: 4px; }
+        ul { padding-left: 20px; }
+        li { margin-bottom: 10px; }
+        footer { text-align: center; margin-top: 40px; color: #706e6b; font-size: 0.9em; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Collaborative Guide: Automating Your Job Search (2026)</h1>
+    <p>In the current market, speed and precision are our best tools. This guide will help you automate your job search for high-demand roles (like Salesforce Data 360, Agentforce, and Analytics) using Google Alerts and Advanced Search Logic.</p>
+
+    <div class="note">
+        <strong>Status:</strong> This is a living document. I will keep improving it daily as I find new strings and filters that work. Bookmark this page to stay updated.
+    </div>
+
+    <h2>1. Setting Up Google Alerts</h2>
+    <p>Google Alerts acts as your 24/7 digital scout. It scans the web and emails you the moment a new job matching your criteria is indexed.</p>
+    <ul>
+        <li>Go to <a href="https://www.google.com/alerts" target="_blank">google.com/alerts</a>.</li>
+        <li>Paste your search string into the "Create an alert about..." box.</li>
+        <li><strong>Settings:</strong> Frequency: "As-it-happens" | Sources: "Automatic" | Region: "United States" | How many: "All results".</li>
+    </ul>
+
+    <h2>2. Understanding the Logic</h2>
+    <h3>Phase 1: The Simple Search</h3>
+    <p>Uses <code>OR</code> to find any keywords. (Broad but noisy).</p>
+    <code>("Agentforce" OR "Data Cloud" OR "Data 360")</code>
+    
+    <h3>Phase 2: Role-Specific Precision</h3>
+    <p>Adds <code>AND</code> to ensure you find a specific title with that tech.</p>
+    <code>("Agentforce" OR "Data Cloud") AND ("Architect" OR "Consultant")</code>
+
+    <h3>Phase 3: The "X-Ray" Filter</h3>
+    <p>Uses <code>site:</code> to force Google to look only at Applicant Tracking Systems (ATS).</p>
+    <code>("Agentforce" OR "Data Cloud") AND (site:greenhouse.io OR site:lever.co OR site:myworkdayjobs.com)</code>
+
+    <h3>Phase 4: Negative Filters</h3>
+    <p>Uses the minus sign (<code>-</code>) to exclude marketing fluff and news.</p>
+    <code>("Agentforce" OR "Data Cloud") -inurl:blog -inurl:news</code>
+
+    <h2>3. The 3-Step Setup Strategy</h2>
+    
+    <h3>Step 1: Set up the Google Alert</h3>
+    <p>Paste the following Product + ATS string into Google Alerts:</p>
+    <code>("Agentforce" OR "Data Cloud" OR "Data 360" OR "CRM Analytics" OR "CRMA") AND (site:greenhouse.io OR site:lever.co OR site:jobs.ashbyhq.com OR site:myworkdayjobs.com OR site:smartrecruiters.com OR site:jobs.icims.com) -inurl:blog -inurl:news</code>
+
+    <h3>Step 2: Set up the LinkedIn Job Alert</h3>
+    <p><em>Note: Google Alerts can miss LinkedIn roles. Create this directly on LinkedIn:</em></p>
+    <code>("Agentforce" OR "Data Cloud" OR "Data 360" OR "CRM Analytics" OR "CRMA") AND ("Architect" OR "Consultant" OR "Solution Architect")</code>
+
+    <h3>Step 3: Save the "Deep Dive" Bookmark</h3>
+    <p>This "Mega String" scans the web for roles posted in the <strong>last 24 hours only</strong>.</p>
+    <a href="https://www.google.com/search?q=(%22Agentforce%22+OR+%22Data+Cloud%22+OR+%22Data+360%22+OR+%22CRM+Analytics%22+OR+%22CRMA%22+OR+%22Tableau+CRM%22+OR+%22Einstein+Analytics%22+OR+%22Customer+Data+Platform%22+OR+%22CDP%22+OR+%22Customer+360%22)+AND+(%22Salesforce+Architect%22+OR+%22Solution+Architect%22+OR+%22Technical+Architect%22+OR+%22Data+Architect%22)+AND+(site%3Aindeed.com+OR+site%3Aglassdoor.com+OR+site%3Adice.com+OR+site%3Awellfound.com+OR+site%3Agreenhouse.io+OR+site%3Alever.co+OR+site%3Ajobs.ashbyhq.com+OR+site%3Amyworkdayjobs.com+OR+site%3Asmartrecruiters.com+OR+site%3Ajobs.icims.com+OR+site%3Abuiltin.com)+-inurl%3Ablog+-inurl%3Anews&tbs=qdr:d" class="btn" target="_blank">Run 24-Hour Job Search</a>
+
+    <h2>4. Pro-Tips for Success</h2>
+    <ul>
+        <li><strong>The 24-Hour Rule:</strong> Check the "Deep Dive" link every morning. Speed is everything.</li>
+        <li><strong>Force-Refresh:</strong> If results feel stale, change the URL parameter from <code>&tbs=qdr:d</code> (past day) to <code>&tbs=qdr:h</code> (past hour).</li>
+        <li><strong>Referrals First:</strong> If you find a link on a greenhouse.io or lever.co, check LinkedIn for a mutual connection before applying cold.</li>
+    </ul>
+
+    <h3>Bonus: Comprehensive Multi-Board String</h3>
+    <code>("Agentforce" OR "Data Cloud" OR "Data 360" OR "CRM Analytics" OR "CRMA" OR "Tableau CRM" OR "Einstein Analytics" OR "Customer Data Platform" OR "CDP" OR "Customer 360" OR "Salesforce Architect" OR "Salesforce Solution Architect" OR "Salesforce Technical Architect" OR "Salesforce Consultant" OR "Data Architect" OR "Analytics Architect" OR "BI Architect" OR "Data & Analytics Architect" OR "Data and Analytics Architect") AND (site:linkedin.com/jobs OR site:indeed.com OR site:glassdoor.com OR site:dice.com OR site:wellfound.com OR site:greenhouse.io OR site:lever.co OR site:jobs.ashbyhq.com OR site:myworkdayjobs.com OR site:smartrecruiters.com OR site:jobs.icims.com OR site:builtin.com)</code>
+</div>
+
+<footer>
+    <p>Created to support the team. Keep your head up and keep moving forward.</p>
+</footer>
+
+</body>
+</html>
