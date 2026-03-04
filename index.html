@@ -57,4 +57,103 @@
     <div class="logic-item">
         <strong>1: The Simple Search</strong><br>
         A basic search uses OR to find any of your keywords.<br>
-        <code>("Agentforce" OR "Data Cloud" OR "Data 360")</code>
+        <code>("Agentforce" OR "Data Cloud" OR "Data 360")</code><br>
+        <small><em>Limitation: This will return news articles, blog posts, and press releases, not just jobs.</em></small>
+    </div>
+
+    <div class="logic-item">
+        <strong>2: Adding Role-Specific Precision</strong><br>
+        By adding an AND bracket, we ensure the results contain both the Tech Stack and the Job Title.<br>
+        <code>("Agentforce" OR "Data Cloud") AND ("Architect" OR "Consultant")</code>
+    </div>
+
+    <div class="logic-item">
+        <strong>3: The "X-Ray" Filter (Targeting Job Boards)</strong><br>
+        To skip the "fluff" and search only career sites, we use the <code>site:</code> operator. This forces Google to only look at Applicant Tracking Systems (ATS).<br>
+        <code>("Agentforce" OR "Data Cloud") AND (site:greenhouse.io OR site:lever.co OR site:myworkdayjobs.com)</code>
+    </div>
+
+    <div class="logic-item">
+        <strong>4: Negative Filters (Noise Cancellation)</strong><br>
+        To stop receiving marketing blogs or news updates, we use the minus sign (-) to exclude specific terms.<br>
+        <code>("Agentforce" OR "Data Cloud") -inurl:blog -inurl:news</code>
+    </div>
+
+    <h2>3. The 3-Step Setup Strategy</h2>
+    
+    <div class="card">
+        <span class="badge">Recommended for FedEx & Staples</span>
+        <h3>Step 1: Set up the Google Alert (Your 24/7 Scout)</h3>
+        <p>Google Alerts will email you the moment a company's internal career page (Lever, Greenhouse, Workday, Oracle Cloud) is updated with a matching role.</p>
+        <p>Paste the following Product + ATS string:</p>
+        <div class="code-block">
+            <code id="str1">("Agentforce" OR "Data Cloud" OR "Data 360" OR "CRM Analytics" OR "CRMA") AND (site:greenhouse.io OR site:lever.co OR site:jobs.ashbyhq.com OR site:myworkdayjobs.com OR site:smartrecruiters.com OR site:jobs.icims.com OR site:oraclecloud.com OR site:fa.ocs.oraclecloud.com) -inurl:blog -inurl:news</code>
+            <button class="copy-btn" onclick="copy('str1', this)">COPY</button>
+        </div>
+        <p><small>Set Options to: Frequency: <strong>As-it-happens</strong>, Region: <strong>United States</strong>, How many: <strong>All results</strong>.</small></p>
+    </div>
+
+    <div class="card">
+        <h3>Step 2: Set up the LinkedIn Job Alert</h3>
+        <p><strong>Note:</strong> Google Alerts often misses LinkedIn job postings because LinkedIn pages are dynamic and often require a login. You must create a separate alert inside LinkedIn to capture these.</p>
+        <ul>
+            <li>Go to the <strong>Jobs</strong> tab on LinkedIn.</li>
+            <li>In the search bar, use this Role + Tech string:</li>
+        </ul>
+        <div class="code-block">
+            <code id="str2">("Agentforce" OR "Data Cloud" OR "Data 360" OR "CRM Analytics" OR "CRMA") AND ("Architect" OR "Consultant" OR "Solution Architect")</code>
+            <button class="copy-btn" onclick="copy('str2', this)">COPY</button>
+        </div>
+        <p>Filter by Location (e.g., "Remote" or "Boston") and toggle <strong>"Set Alert"</strong> to On.</p>
+    </div>
+
+    <div class="card" style="text-align: center; border: 2px solid var(--brand);">
+        <h3>Step 3: Save the "Deep Dive" Bookmark (The Head of Search)</h3>
+        <p>For an urgent search, we cannot always wait for an email. This "Mega String" is a URL that filters the entire web for results from the past 24 hours only, stripping away blogs and news.</p>
+        <a href="https://www.google.com/search?q=(%22Agentforce%22+OR+%22Data+Cloud%22+OR+%22Data+360%22+OR+%22CRM+Analytics%22+OR+%22CRMA%22+OR+%22Tableau+CRM%22+OR+%22Einstein+Analytics%22+OR+%22Customer+Data+Platform%22+OR+%22CDP%22+OR+%22Customer+360%22)+AND+(%22Salesforce+Architect%22+OR+%22Solution+Architect%22+OR+%22Technical+Architect%22+OR+%22Data+Architect%22)+AND+(site%3Aindeed.com+OR+site%3Aglassdoor.com+OR+site%3Adice.com+OR+site%3Awellfound.com+OR+site%3Agreenhouse.io+OR+site%3Alever.co+OR+site%3Ajobs.ashbyhq.com+OR+site%3Amyworkdayjobs.com+OR+site%3Asmartrecruiters.com+OR+site%3Ajobs.icims.com+OR+site%3Abuiltin.com+OR+site%3Aoraclecloud.com+OR+site%3Afa.ocs.oraclecloud.com)+-inurl%3Ablog+-inurl%3Anews&tbs=qdr:d" class="action-btn" target="_blank">Run Last 24-Hour Search →</a>
+        
+        <div style="text-align: left; margin-top: 20px; font-size: 0.95rem;">
+            <p><strong>Indexing Speed:</strong> Google’s automated alerts can sometimes lag. A manual search with a time filter (<code>tbs=qdr:d</code>) forces Google to show the latest crawl data.</p>
+            <p><strong>Indexing Gaps:</strong> Some job boards prevent automated triggers, but still show up in standard searches.</p>
+        </div>
+    </div>
+
+    <h2>4. Pro-Tips for Success</h2>
+    <div class="card">
+        <ul>
+            <li><strong>The 24-Hour Rule:</strong> Check the Ad-Hoc link every morning. Being among the first 25 applicants significantly increases your chance of a callback.</li>
+            <li><strong>Force-Refresh the Results:</strong> Run the "Head of Search" bookmark manually and then change the URL from <code>&tbs=qdr:d</code> (past day) to <code>&tbs=qdr:h</code> (past hour). This shows you jobs that were literally just posted minutes ago.</li>
+            <li><strong>Referrals first:</strong> Found a role on Greenhouse/Lever/Oracle? Check LinkedIn for a mutual connection before applying cold.</li>
+        </ul>
+    </div>
+
+    <div class="card" style="background: #f9f9f9;">
+        <h3>Comprehensive Search String (Sample)</h3>
+        <p>Use this for the most expansive search across all major platforms:</p>
+        <div class="code-block">
+            <code id="str3">("Agentforce" OR "Data Cloud" OR "Data 360" OR "CRM Analytics" OR "CRMA" OR "Tableau CRM" OR "Einstein Analytics" OR "Customer Data Platform" OR "CDP" OR "Customer 360" OR "Salesforce Architect" OR "Salesforce Solution Architect" OR "Salesforce Technical Architect" OR "Salesforce Consultant" OR "Data Architect" OR "Analytics Architect" OR "BI Architect" OR "Data & Analytics Architect" OR "Data and Analytics Architect") AND (site:linkedin.com/jobs OR site:indeed.com OR site:glassdoor.com OR site:dice.com OR site:wellfound.com OR site:greenhouse.io OR site:lever.co OR site:jobs.ashbyhq.com OR site:myworkdayjobs.com OR site:smartrecruiters.com OR site:jobs.icims.com OR site:builtin.com OR site:oraclecloud.com OR site:fa.ocs.oraclecloud.com)</code>
+            <button class="copy-btn" onclick="copy('str3', this)">COPY</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>Maintained by <a href="https://github.com/Mudit-M" style="color: var(--brand); text-decoration: none; font-weight: bold;">Mudit-M</a> | Built to support our team.</p>
+    </footer>
+</div>
+
+<script>
+    function copy(id, btn) {
+        const text = document.getElementById(id).innerText;
+        navigator.clipboard.writeText(text).then(() => {
+            const originalText = btn.innerText;
+            btn.innerText = "COPIED";
+            btn.style.background = "#2e844a";
+            setTimeout(() => {
+                btn.innerText = originalText;
+                btn.style.background = "#0176d3";
+            }, 2000);
+        });
+    }
+</script>
+</body>
+</html>
