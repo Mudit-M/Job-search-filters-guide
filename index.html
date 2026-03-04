@@ -3,216 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Job Search Automation Guide | 2026</title>
+    <title>Job Search Automation Guide | Mudit-M</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --brand: #0176d3;      /* Salesforce Lightning Blue */
-            --bg: #f3f3f3;
-            --card-bg: #ffffff;
-            --text-main: #181818;
-            --text-soft: #444444;
-            --border: #dddbda;
-            --success: #2e844a;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg);
-            color: var(--text-main);
-            margin: 0;
-            line-height: 1.6;
-            padding: 40px 20px;
-        }
-
-        .container {
-            max-width: 850px;
-            margin: 0 auto;
-        }
-
-        header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--brand);
-            margin-bottom: 10px;
-        }
-
-        .subtitle {
-            font-size: 1.1rem;
-            color: var(--text-soft);
-        }
-
-        /* Card Styling */
-        .card {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 32px;
-            margin-bottom: 24px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        }
-
-        h2 {
-            font-size: 1.5rem;
-            margin-top: 0;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            color: var(--brand);
-        }
-
-        /* Search String Boxes */
-        .code-container {
-            position: relative;
-            background: #f9fbfe;
-            border: 1px solid #cfe0f5;
-            border-radius: 8px;
-            padding: 20px;
-            margin: 15px 0;
-        }
-
-        code {
-            font-family: 'SFMono-Regular', Consolas, monospace;
-            font-size: 0.95rem;
-            color: #274e8c;
-            word-break: break-all;
-            display: block;
-            padding-right: 80px;
-        }
-
-        .copy-btn {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: var(--brand);
-            color: white;
-            border: none;
-            padding: 6px 12px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-
-        .copy-btn:active { transform: scale(0.95); }
-
-        /* Buttons */
-        .action-btn {
-            display: inline-flex;
-            align-items: center;
-            background: var(--brand);
-            color: white;
-            padding: 14px 28px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            margin: 10px 0;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 14px rgba(1, 118, 211, 0.3);
-        }
-
-        .action-btn:hover {
-            background: #015ba2;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(1, 118, 211, 0.4);
-        }
-
-        /* Responsive */
-        @media (max-width: 600px) {
-            body { padding: 20px 10px; }
-            h1 { font-size: 1.8rem; }
-            .card { padding: 20px; }
-        }
-
-        .step-badge {
-            background: var(--brand);
-            color: white;
-            width: 28px;
-            height: 28px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            font-size: 0.9rem;
-            font-weight: bold;
-        }
+        :root { --brand: #0176d3; --bg: #f8f9fb; --card-bg: #ffffff; --text: #181818; --accent: #ffb75d; --border: #dddbda; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); margin: 0; padding: 40px 20px; line-height: 1.6; }
+        .container { max-width: 850px; margin: 0 auto; }
+        header { text-align: center; margin-bottom: 40px; }
+        h1 { color: var(--brand); font-size: 2.4rem; margin-bottom: 8px; }
+        .subtitle { color: #444; font-size: 1.1rem; }
+        .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 30px; margin-bottom: 24px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+        h2 { color: var(--brand); border-left: 4px solid var(--brand); padding-left: 15px; margin-top: 0; }
+        .code-block { position: relative; background: #f0f4f8; border-radius: 8px; padding: 20px; margin: 15px 0; border: 1px solid #d0d7de; }
+        code { font-family: 'SFMono-Regular', Consolas, monospace; font-size: 0.9rem; color: #003a6c; word-break: break-all; }
+        .copy-btn { position: absolute; top: 10px; right: 10px; background: var(--brand); color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; font-size: 0.7rem; font-weight: bold; }
+        .action-btn { display: inline-block; background: var(--brand); color: white; padding: 14px 28px; border-radius: 50px; text-decoration: none; font-weight: 700; margin-top: 10px; box-shadow: 0 4px 14px rgba(1, 118, 211, 0.3); }
+        .action-btn:hover { background: #015ba2; transform: translateY(-1px); }
+        .logic-grid { display: grid; grid-template-columns: 1fr; gap: 15px; margin-top: 20px; }
+        .logic-item { background: #fffdf6; border: 1px solid #f9f0c3; padding: 15px; border-radius: 8px; }
+        footer { text-align: center; color: #706e6b; font-size: 0.85rem; margin-top: 50px; }
     </style>
 </head>
 <body>
 
 <div class="container">
     <header>
-        <h1>Career Search Automation</h1>
-        <p class="subtitle">2026 Restructuring Support Edition | Speed & Precision</p>
+        <h1>🚀 Job Search Automation</h1>
+        <p class="subtitle">2026 Edition | Speed & Precision Strategist</p>
     </header>
 
-    <div class="card" style="border-top: 6px solid #ffb75d;">
-        <p><strong>Note for Colleagues:</strong> Speed is the #1 factor in a tight market. This guide helps you set up a "hands-off" system that finds jobs the minute they are posted.</p>
+    <div class="card" style="border-top: 5px solid var(--accent);">
+        <p>In the current market, speed and precision are our best tools. This guide helps you automate your search for high-demand roles (Data 360, Agentforce, Analytics) using Google Alerts and Advanced Search Logic.</p>
     </div>
 
+    <h2>1. Understanding the Logic Evolution</h2>
+    <div class="logic-grid">
+        <div class="logic-item"><strong>1. Simple Search:</strong> <code>("Agentforce" OR "Data Cloud")</code><br><small>Broad but noisy; returns news and blogs.</small></div>
+        <div class="logic-item"><strong>2. Role Precision:</strong> Adds <code>AND ("Architect" OR "Consultant")</code><br><small>Ensures tech stack matches a job title.</small></div>
+        <div class="logic-item"><strong>3. X-Ray Filter:</strong> Adds <code>site:lever.co</code><br><small>Forces Google to only look at Applicant Tracking Systems.</small></div>
+        <div class="logic-item"><strong>4. Negative Filter:</strong> Adds <code>-inurl:blog</code><br><small>Strips away articles and press releases.</small></div>
+    </div>
+
+    <h2>2. The 3-Step Strategy</h2>
+    
     <div class="card">
-        <h2><span class="step-badge">1</span> Google Alert (ATS Tracker)</h2>
-        <p>Catches new posts on internal career sites like Greenhouse, Lever, and Workday.</p>
-        <div class="code-container">
-            <code id="string1">("Agentforce" OR "Data Cloud" OR "Data 360" OR "CRM Analytics" OR "CRMA") AND (site:greenhouse.io OR site:lever.co OR site:jobs.ashbyhq.com OR site:myworkdayjobs.com OR site:smartrecruiters.com OR site:jobs.icims.com) -inurl:blog -inurl:news</code>
-            <button class="copy-btn" onclick="copyCode('string1', this)">COPY</button>
+        <h3>Step 1: Google Alert (24/7 Scout)</h3>
+        <p>Emails you the moment a company career page is updated.</p>
+        <div class="code-block">
+            <code id="c1">("Agentforce" OR "Data Cloud" OR "Data 360" OR "CRM Analytics" OR "CRMA") AND (site:greenhouse.io OR site:lever.co OR site:jobs.ashbyhq.com OR site:myworkdayjobs.com OR site:smartrecruiters.com OR site:jobs.icims.com) -inurl:blog -inurl:news</code>
+            <button class="copy-btn" onclick="copy('c1', this)">COPY</button>
         </div>
-        <p><small>Set Alert to: <strong>As-it-happens</strong> | <strong>All Results</strong></small></p>
+        <p><small>Set to: <strong>As-it-happens</strong> | <strong>All Results</strong></small></p>
     </div>
 
     <div class="card">
-        <h2><span class="step-badge">2</span> LinkedIn Specialized Alert</h2>
-        <p>Essential because LinkedIn roles often don't show up in Google Alerts.</p>
-        <div class="code-container">
-            <code id="string2">("Agentforce" OR "Data Cloud" OR "Data 360" OR "CRM Analytics" OR "CRMA") AND ("Architect" OR "Consultant" OR "Solution Architect")</code>
-            <button class="copy-btn" onclick="copyCode('string2', this)">COPY</button>
+        <h3>Step 2: LinkedIn Specialized Alert</h3>
+        <p>Note: LinkedIn pages are dynamic; you must set this alert directly in the LinkedIn Jobs tab.</p>
+        <div class="code-block">
+            <code id="c2">("Agentforce" OR "Data Cloud" OR "Data 360" OR "CRM Analytics" OR "CRMA") AND ("Architect" OR "Consultant" OR "Solution Architect")</code>
+            <button class="copy-btn" onclick="copy('c2', this)">COPY</button>
         </div>
-        <p><small>Search in the <strong>Jobs</strong> tab and toggle "Set Alert" to ON.</small></p>
     </div>
+
+    <div class="card" style="text-align: center;">
+        <h3>Step 3: The "Deep Dive" Bookmark</h3>
+        <p>The "Mega String" for results from the <strong>last 24 hours</strong> only.</p>
+        <a href="https://www.google.com/search?q=(%22Agentforce%22+OR+%22Data+Cloud%22+OR+%22Data+360%22+OR+%22CRM+Analytics%22+OR+%22CRMA%22+OR+%22Tableau+CRM%22+OR+%22Einstein+Analytics%22+OR+%22Customer+Data+Platform%22+OR+%22CDP%22+OR+%22Customer+360%22)+AND+(%22Salesforce+Architect%22+OR+%22Solution+Architect%22+OR+%22Technical+Architect%22+OR+%22Data+Architect%22)+AND+(site%3Aindeed.com+OR+site%3Aglassdoor.com+OR+site%3Adice.com+OR+site%3Awellfound.com+OR+site%3Agreenhouse.io+OR+site%3Alever.co+OR+site%3Ajobs.ashbyhq.com+OR+site%3Amyworkdayjobs.com+OR+site%3Asmartrecruiters.com+OR+site%3Ajobs.icims.com+OR+site%3Abuiltin.com)+-inurl%3Ablog+-inurl%3Anews&tbs=qdr:d" class="action-btn" target="_blank">Run 24-Hour Job Sweep →</a>
+    </div>
+
+    <h2>3. Pro-Tips for Success</h2>
+    <ul>
+        <li><strong>Check daily:</strong> Be among the first 25 applicants to secure an interview.</li>
+        <li><strong>Force-Refresh:</strong> Change the URL parameter from <code>qdr:d</code> (day) to <code>qdr:h</code> (hour) for real-time indexing.</li>
+        <li><strong>Referrals:</strong> Use the search to identify the company, then find a warm connection on LinkedIn.</li>
+    </ul>
 
     <div class="card">
-        <h2><span class="step-badge">3</span> The "Daily Sweep" Bookmark</h2>
-        <p>The most powerful tool. A manual search link for roles posted in the <strong>last 24 hours</strong> only.</p>
-        <center>
-            <a href="https://www.google.com/search?q=(%22Agentforce%22+OR+%22Data+Cloud%22+OR+%22Data+360%22+OR+%22CRM+Analytics%22+OR+%22CRMA%22+OR+%22Tableau+CRM%22+OR+%22Einstein+Analytics%22+OR+%22Customer+Data+Platform%22+OR+%22CDP%22+OR+%22Customer+360%22)+AND+(%22Salesforce+Architect%22+OR+%22Solution+Architect%22+OR+%22Technical+Architect%22+OR+%22Data+Architect%22)+AND+(site%3Aindeed.com+OR+site%3Aglassdoor.com+OR+site%3Adice.com+OR+site%3Awellfound.com+OR+site%3Agreenhouse.io+OR+site%3Alever.co+OR+site%3Ajobs.ashbyhq.com+OR+site%3Amyworkdayjobs.com+OR+site%3Asmartrecruiters.com+OR+site%3Ajobs.icims.com+OR+site%3Abuiltin.com)+-inurl%3Ablog+-inurl%3Anews&tbs=qdr:d" class="action-btn" target="_blank">
-                Run 24-Hour Job Sweep →
-            </a>
-        </center>
-    </div>
-
-    <div class="card" style="background: #fdfdfd;">
-        <h2>Pro-Tips</h2>
-        <ul>
-            <li><strong>Refresh the indexing:</strong> If the sweep link feels stale, change the URL end from <code>qdr:d</code> to <code>qdr:h</code> to see the past hour only.</li>
-            <li><strong>Referrals:</strong> Found a role on a Lever/Greenhouse link? Check LinkedIn for a mutual connection <em>first</em>.</li>
-        </ul>
+        <h3>Bonus: Comprehensive Multi-Board String</h3>
+        <div class="code-block">
+            <code id="c3">("Agentforce" OR "Data Cloud" OR "Data 360" OR "CRM Analytics" OR "CRMA" OR "Tableau CRM" OR "Einstein Analytics" OR "Customer Data Platform" OR "CDP" OR "Customer 360" OR "Salesforce Architect" OR "Salesforce Solution Architect" OR "Salesforce Technical Architect" OR "Salesforce Consultant" OR "Data Architect" OR "Analytics Architect" OR "BI Architect" OR "Data & Analytics Architect" OR "Data and Analytics Architect") AND (site:linkedin.com/jobs OR site:indeed.com OR site:glassdoor.com OR site:dice.com OR site:wellfound.com OR site:greenhouse.io OR site:lever.co OR site:jobs.ashbyhq.com OR site:myworkdayjobs.com OR site:smartrecruiters.com OR site:jobs.icims.com OR site:builtin.com)</code>
+            <button class="copy-btn" onclick="copy('c3', this)">COPY</button>
+        </div>
     </div>
 
     <footer>
-        <p>Built with ❤️ for our team. Keep moving forward.</p>
+        <p>Maintained by <a href="https://github.com/Mudit-M">Mudit-M</a>. Support your colleagues. Keep moving forward.</p>
     </footer>
 </div>
 
 <script>
-    function copyCode(id, btn) {
+    function copy(id, btn) {
         const text = document.getElementById(id).innerText;
         navigator.clipboard.writeText(text).then(() => {
-            const originalText = btn.innerText;
-            btn.innerText = "COPIED!";
-            btn.style.background = "#2e844a";
-            setTimeout(() => {
-                btn.innerText = originalText;
-                btn.style.background = "#0176d3";
-            }, 2000);
+            btn.innerText = "COPIED";
+            setTimeout(() => { btn.innerText = "COPY"; }, 2000);
         });
     }
 </script>
-
 </body>
 </html>
